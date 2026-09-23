@@ -6,6 +6,7 @@
   box-sizing: border-box;
 }
 
+.header,
 .hero,
 .sobre,
 .projetos,
@@ -13,14 +14,38 @@
   display: flex;
 }
 
+.header {
+  background-color: rgba(4, 7, 17, 1);
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 10px 3%;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  margin: 20px;
+}
+
+/* TIREI A DIV LINKS PQ ACHO Q AQ PODE ESTILIZAR O NAV DIRETO, PRECISA DE DIV. QUALQUER COISA VC MUDA DPS, MAS ACHO Q N PRECISA */
+
+.logo {
+  display: flex;
+  margin: 12px;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
 .hero {
-}
-
-.sobre {
-}
-
-.projetos {
-}
-
-.orcamento {
+  align-items: center;
+  justify-content: center;
+  background-image: url(/imagens/backgraund.jpeg);
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
 }
