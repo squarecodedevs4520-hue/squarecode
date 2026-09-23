@@ -1,51 +1,210 @@
-@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"); /*resto*/
-@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"); /*fonte para h1,h2*/
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+:root {
+  /* ==========================================================================
+     1. FUNDOS & SUPERFÍCIES (Base Escura Cósmica)
+     ========================================================================== */
+  --bg-primary: #040711; /* Fundo principal da página (body/hero/seções) */
+  --bg-surface: #0a101d; /* Superfície dos cards, modal e mockups */
+  --bg-surface-deep: #020409; /* Rodapé e áreas de contraste mais profundo */
+  --bg-header-glass: rgba(4, 7, 17, 0.7); /* Fundo translúcido da barra fixa */
+
+  /* ==========================================================================
+     2. AZUL CLARO (Identidade Visual & Acentos)
+     ========================================================================== */
+  --sky-primary: #38bdf8; /* Azul Claro principal (logo, botões, bordas ativas) */
+  --sky-light: #7dd3fc; /* Azul Claro iluminado (gradiente H1, hover de links) */
+  --sky-pastel: #bae6fd; /* Azul suave (subtítulos e parágrafos de destaque) */
+  --sky-dim: #0284c7; /* Azul médio (foco, transições mais escuras) */
+
+  /* Acentos com Transparência (Badges, glows e seletores) */
+  --sky-glow: rgba(56, 189, 248, 0.35); /* Sombra com brilho neon */
+  --sky-border-dim: rgba(56, 189, 248, 0.25); /* Bordas com realce azul */
+  --sky-bg-subtle: rgba(
+    56,
+    189,
+    248,
+    0.1
+  ); /* Fundos de tags e resumo de orçamento */
+
+  /* ==========================================================================
+     3. BRANCO & TEXTOS NEUTROS
+     ========================================================================== */
+  --text-pure: #ffffff; /* Branco puro (títulos H1/H2, ícones principais) */
+  --text-high: rgba(255, 255, 255, 0.8); /* Links do menu e subtítulos fortes */
+  --text-muted: rgba(
+    255,
+    255,
+    255,
+    0.6
+  ); /* Parágrafos corridos e explicações */
+  --text-dim: rgba(255, 255, 255, 0.4); /* URLs simuladas e rodapé copyright */
+
+  /* ==========================================================================
+     4. BORDAS, SOMBRAS & BLUR
+     ========================================================================== */
+  --border-subtle: 2px solid rgba(255, 255, 255, 0.986); /* Borda padrão dos cards */
+  --border-focus: 1px solid var(--sky-primary); /* Borda de campos ativos */
+
+  --shadow-card: 0 20px 40px -10px rgba(0, 0, 0, 0.5); /* Elevação dos cards */
+  --shadow-glow: 0 0 25px var(--sky-glow); /* Brilho suave nos botões */
+
+  --backdrop-blur-nav: blur(12px); /* Desfoque do cabeçalho */
+  --backdrop-blur-modal: blur(16px); /* Desfoque de fundo do modal */
+
+  /* ==========================================================================
+     5. TIPOGRAFIA
+     ========================================================================== */
+  --font-main:
+    "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-code: "JetBrains Mono", monospace;
 }
 
-.header,
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"); /*resto*/
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"); /*fonte para h1,h2*/
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+
+nav,
 .hero,
 .sobre,
 .projetos,
-.orcamento {
+.orcamento,
+.botoes {
   display: flex;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+p {
+  opacity: 0.8;
+}
+
+body {
 }
 
 .header {
-  background-color: rgba(4, 7, 17, 1);
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   align-items: center;
-  gap: 15px;
-  padding: 10px 3%;
-}
-nav {
-  display: flex;
-  justify-content: space-between;
-  gap: 30px;
-  margin: 20px;
-}
+  padding: 28px 4%;
 
-/* TIREI A DIV LINKS PQ ACHO Q AQ PODE ESTILIZAR O NAV DIRETO, PRECISA DE DIV. QUALQUER COISA VC MUDA DPS, MAS ACHO Q N PRECISA */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+
+  backdrop-filter: blur(5px);
+  background-color: #ffffff0a;
+
+  & button {
+    color: white;
+    justify-self: end;
+  }
+}
 
 .logo {
-  display: flex;
-  margin: 12px;
+  justify-self: start;
 }
 
-section {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+nav {
+  gap: 60px;
+  align-items: center;
+  justify-self: center;
+
+  & a {
+    color: white;
+    opacity: 0.8;
+    transition: 0.4s all;
+    color: var(--text-pure);
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 17px;
+  }
+
+  & a:hover {
+    opacity: 1;
+    transform: translateY(-3px);
+    font-weight: 600;
+  }
 }
+
+.contato {
+  border: 1px solid var(--sky-primary);
+  border-radius: 10px;
+  padding: 12px 40px;
+  text-transform: uppercase;
+  background-color: var(--sky-primary);
+  font-weight: 600;
+}
+
+.contato:hover {
+}
+/* 
+.divsAnimada {
+  position: absolute;
+  width: 50px;
+  z-index: 20;
+  background-color: red;
+} */
 
 .hero {
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 50px;
+  padding: 4%;
   background-image: url(/imagens/backgraund.jpeg);
-  background-size: cover;
   background-position: center;
+  background-size: cover;
   height: 100vh;
+
+  & h1 {
+    color: var(--sky-light);
+    font-size: 5vw;
+    text-align: center;
+    font-family: var(--font-main);
+    letter-spacing: -3px;
+
+    mix-blend-mode: color-dodge;
+  }
+
+  & p {
+    color: var(--sky-pastel);
+    font-size: 1.5vw;
+    text-align: center;
+    font-family: var(--font-main);
+  }
+}
+
+.botoes {
+  gap: 30px;
+  align-items: center;
+
+  & a:nth-child(1) {
+    font-family: var(--font-main);
+    background-color: transparent;
+    border: var(--sky-primary) 1px solid;
+    border-radius: 13px;
+    padding: 20px 80px;
+    transition: 0.4s all;
+  }
+
+  & a:nth-child(1):hover {
+    /*transform: translateY(-3px);*/
+    transform: scale(1.05);
+  }
+
+  & a:nth-child(2) {
+    font-family: var(--font-main);
+    background-color: var(--sky-primary);
+    border-radius: 13px;
+    padding: 20px 80px;
+    transition: 0.4s all;
+  }
+
+  & a:nth-child(2):hover {
+    /* transform: translateY(-3px);*/
+    transform: scale(1.05);
+  }
 }
