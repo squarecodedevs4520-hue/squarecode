@@ -67,7 +67,8 @@ nav,
 .sobre,
 .projetos,
 .orcamento,
-.botoes {
+.botoes,
+.cards-sobre {
   display: flex;
 }
 
@@ -95,8 +96,9 @@ body {
   right: 0;
   z-index: 100;
 
-  backdrop-filter: blur(5px);
-  background-color: #ffffff0a;
+  /* backdrop-filter: blur(5px); */
+  backdrop-filter: var(--backdrop-blur-nav);
+  background-color: var(--bg-header-glass);
 
   & button {
     color: white;
@@ -115,7 +117,7 @@ nav {
 
   & a {
     color: white;
-    opacity: 0.8;
+    opacity: 0.5;
     transition: 0.4s all;
     color: var(--text-pure);
     font-family: "Plus Jakarta Sans", sans-serif;
@@ -133,12 +135,18 @@ nav {
   border: 1px solid var(--sky-primary);
   border-radius: 10px;
   padding: 12px 40px;
+  font-family: "Plus Jakarta Sans", sans-serif;
   text-transform: uppercase;
   background-color: var(--sky-primary);
   font-weight: 600;
+  transition: 0.4s all;
+  color: var(--text-pure);
 }
 
 .contato:hover {
+  opacity: 0.8;
+  transform: translateY(-3px);
+  font-weight: 600;
 }
 /* 
 .divsAnimada {
@@ -184,10 +192,11 @@ nav {
   & a:nth-child(1) {
     font-family: var(--font-main);
     background-color: transparent;
-    border: var(--sky-primary) 1px solid;
+    border: gray 0.5px solid;
     border-radius: 13px;
     padding: 20px 80px;
     transition: 0.4s all;
+    backdrop-filter: blur(900px);
   }
 
   & a:nth-child(1):hover {
@@ -207,4 +216,61 @@ nav {
     /* transform: translateY(-3px);*/
     transform: scale(1.05);
   }
+}
+
+.sobre {
+  background-color: var(--bg-primary);
+  flex-direction: column;
+  z-index: 4;
+  padding: 60px 4%;
+  align-items: center;
+  justify-content: center;
+  & h2 {
+    color: var(--text-pure);
+    font-family: var(--font-main);
+    letter-spacing: -1px;
+    font-size: 60px;
+    margin: 0 25px 0px 25px;
+  }
+  & h3 {
+    color: var(--text-pure);
+    font-family: var(--font-main);
+    letter-spacing: -1px;
+    margin: 10px 0px 5px 20px;
+  }
+  & p {
+    color: var(--text-pure);
+    font-family: "Plus Jakarta Sans", sans-serif;
+    max-height: 50px;
+    font-size: 25px;
+    margin: 50px 20px;
+  }
+}
+
+.cards-sobre {
+  gap: 20px;
+}
+
+.card-sobre {
+  /* background-color: var(); */
+  border: solid 1px white;
+  border-radius: 25px;
+  padding: 16px 20px;
+  max-height: 150px;
+  margin:;
+  backdrop-filter: var(--backdrop-blur-nav);
+  background-color: var(--bg-header-glass);
+
+  & h3 {
+    font-size: 30px;
+    font-family: var(--font-main);
+  }
+  & p {
+    font-size: 26px;
+    margin: 20px;
+  }
+}
+
+.projetos {
+  background-color: var(--bg-primary);
 }
