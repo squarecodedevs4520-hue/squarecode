@@ -1,7 +1,7 @@
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+// gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
-ScrollSmoother.create({
-  smooth: 2,
-  smoothTouch: 0,
-  effects: true,
-});
+// ScrollSmoother.create({
+//   smooth: 2.4,
+//   smoothTouch: 0,
+//   effects: true,
+// });
